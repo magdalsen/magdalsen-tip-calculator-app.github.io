@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: hsl(185, 41%, 84%);
+    font-family: 'Space Mono', monospace;
+}
+
+input {
+    font-size: 24px;
+}
+
+.notVisibile {
+    display: none;
+}
+
+.visible {
+    visibility: visible;
+}
+
+h4 {
+    margin: 0;
+    letter-spacing: 10px;
+    color: hsl(186, 14%, 43%)
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0rem 0rem 0rem;
+}
+
+.app {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: 80px 120px 80px;
+    grid-template-columns: 300px 300px;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.app__bill {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.app__tip {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.app_number {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.app__right {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-color: hsl(183, 100%, 15%);
+    border-radius: 20px;
+    padding: 2.5rem 0rem 0rem 1.5rem;
+}
+
+#warningNotEmptyField {
+    color: red;
+}
