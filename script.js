@@ -1,8 +1,8 @@
 const findSelected = () => {
     const selected = document.querySelector("input[name='tip']:checked").value;
     if (customBtnInput.value !== '') {
-        const tipAmount = Number(bill.value) * Number(customBtnInput.value) / Number(people.value);
-        const tipTotal = ((Number(bill.value) * Number(customBtnInput.value)) + Number(bill.value)) / Number(people.value);
+        const tipAmount = Number(bill.value) * Number(customBtnInput.value) / 100 / Number(people.value);
+        const tipTotal = ((Number(bill.value) * Number(customBtnInput.value) / 100) + Number(bill.value)) / Number(people.value);
     
         result_tipAmount.innerHTML = Math.round(tipAmount * Math.pow(10, 2)) / Math.pow(10, 2);
         result_tipTotal.innerHTML = Math.round(tipTotal * Math.pow(10, 2)) / Math.pow(10, 2);
