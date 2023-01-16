@@ -45,16 +45,19 @@ input {
     background-image: url(./images/icon-person.svg);
     background-repeat: no-repeat;
     background-position: center left 1rem;
+    width: 37vh;
 }
 
 #bill {
     background-image: url(./images/icon-dollar.svg);
     background-repeat: no-repeat;
     background-position: center left 1rem;
+    width: 37vh;
 }
 
 label {
     color: var(--dark-grayish-cyan);
+    font-size: 14px;
 }
 
 .notVisible {
@@ -116,9 +119,66 @@ h4 {
     grid-row-end: 4;
     background-color: hsl(183, 100%, 15%);
     border-radius: 20px;
-    padding: 2.5rem 0rem 0rem 1.5rem;
+    padding: 2.5rem 2rem 0rem 2rem;
+}
+
+.app__reset {
+    position: relative;
+    top: 80px;
+    text-align: center;
+}
+
+.app__reset button {
+    font-size: 16px;
+    border: var(--very-light-grayish-cyan);
+    border-radius: 5px;
+    border-color: var(--grayish-cyan);
+    background-color: var(--grayish-cyan);
+    font-family: 'Space Mono', monospace;
+    width: 100%;
+    height: 2.5rem;
+    color: var(--very-dark-cyan);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.app__reset button:hover {
+    background-color: var(--strong-cyan);
+}
+
+.app__tipAmount, .app__tipTotal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#result_tipAmount, #result_tipTotal {
+    font-size: 38px;
+    color: var(--strong-cyan);
+}
+
+.app__tipText {
+    color: var(--white);
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.app__tipPerson {
+    color: var(--grayish-cyan);
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #warningNotEmptyField {
     color: red;
+}
+
+#labelForNumber {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
