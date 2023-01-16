@@ -19,7 +19,7 @@ const findSelected = () => {
 const warningNotEmptyField = document.getElementById('warningNotEmptyField');
 const startCount = () => {
     if (people.value === '' || people.value === '0') {
-        document.getElementById('result_tipAmount').value = 0;
+        document.getElementById('result_tipAmount').value = '$0.00';
         warningNotEmptyField.innerHTML = "Can't be zero";
         people.style.border = 'solid red';
         return
@@ -40,7 +40,7 @@ people.addEventListener('input', startCount);
 //tip
 const tip = document.querySelectorAll("input[name='tip']");
 const result_tipAmount = document.getElementById('result_tipAmount');
-const result_tipTotal = document.getElementById('result_tipTotal')
+const result_tipTotal = document.getElementById('result_tipTotal');
 tip.forEach(radioBtn => {
     radioBtn.addEventListener('change', startCount);
 });
@@ -62,4 +62,6 @@ const resetBtn = () => {
     document.querySelector('#customBtnInput').value = '';
     warningNotEmptyField.innerHTML = '';
     people.style.border = '';
+    document.getElementById('result_tipAmount').innerHTML = '$0.00';
+    document.getElementById('result_tipTotal').innerHTML = '$0.00';
 }
