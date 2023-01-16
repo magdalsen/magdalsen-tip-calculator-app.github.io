@@ -22,11 +22,11 @@
     <div class="app">
       <div class="app__bill">
         <label for="bill">Bill</label><br>
-        <input type="number" id="bill" name="bill" onchange="startCount()">
+        <input type="number" id="bill" name="bill" placeholder="0" onchange="startCount()">
       </div>
   
       <div class="app__tip">
-        <p>Select Tip %</p>
+        <label>Select Tip %</label>
         <input type="radio" id="five" name="tip" value="0.05" checked />
         <label for="5">5%</label><br>
         <input type="radio" id="ten" name="tip" value="0.1" />
@@ -38,13 +38,13 @@
         <input type="radio" id="fifty" name="tip" value="0.5" />
         <label for="50">50%</label><br>
         <button type="button" id="customBtn" onclick="customValue()">Custom</button>
-        <input type="number" id="customBtnInput" class="notVisibile" name="custom" onclick="customValue()" />
+        <input type="number" id="customBtnInput" class="notVisible" name="custom" placeholder="0" onclick="customValue()" />
       </div>
   
       <div class="app__number">
         <label for="number">Number of People</label><br>
         <div id="warningNotEmptyField"></div>
-        <input type="number" id="people" name="people" onchange="startCount()">
+        <input type="number" id="people" name="people" placeholder="0" onchange="startCount()">
       </div>
       
       <div class="app__right">
@@ -59,7 +59,7 @@
         </div>
         
         <div class="app__reset">
-          <button type="submit" onclick="resetBtn()">Reset</button>
+          <button type="button" onclick="resetBtn()">Reset</button>
         </div>
       </div>
     </div>

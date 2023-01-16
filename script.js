@@ -49,13 +49,14 @@ const customBtnInput = document.querySelector('#customBtnInput');
 customBtnInput.addEventListener('input', startCount);
 
 const customValue = () => {
-    document.querySelector('#customBtn').classList.add("notVisibile");
-    document.querySelector('#customBtnInput').classList.remove("notVisibile");
-    document.querySelector('#customBtnInput').classList.add("visibile");
+    document.querySelector('#customBtn').classList.add("notVisible");
+    document.querySelector('#customBtnInput').classList.remove("notVisible");
+    document.querySelector('#customBtnInput').classList.add("visible");
 }
 
 //reset
 const resetBtn = () => {
     document.querySelector('#bill').value = '';
     document.querySelector('#people').value = '';
+    document.querySelector('#customBtnInput').value = '';
 }
