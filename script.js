@@ -1,28 +1,40 @@
+const warningNotEmptyField = document.getElementById('warningNotEmptyField');
+const bill = document.querySelector('#bill');
+const people = document.querySelector('#people');
+const tip = document.querySelectorAll("input[name='tip']");
+const result_tipAmount = document.getElementById('result_tipAmount');
+const result_tipTotal = document.getElementById('result_tipTotal');
+const customBtnInput = document.querySelector('#customBtnInput');
+const resetBtn = document.querySelector('.app__reset--button');
+
+const calculateTip=(tip)=>{
+    return Math.round(tip * Math.pow(10, 2)) / Math.pow(10, 2);
+}
+
 const findSelected = () => {
     const selected = document.querySelector("input[name='tip']:checked").value;
+    let tipAmount;
+    let tipTotal;
+    let counter;
     if (customBtnInput.value !== '') {
-        const tipAmount = Number(bill.value) * Number(customBtnInput.value) / 100 / Number(people.value);
-        const tipTotal = ((Number(bill.value) * Number(customBtnInput.value) / 100) + Number(bill.value)) / Number(people.value);
-    
-        result_tipAmount.innerHTML = `$${Math.round(tipAmount * Math.pow(10, 2)) / Math.pow(10, 2)}`;
-        result_tipTotal.innerHTML = `$${Math.round(tipTotal * Math.pow(10, 2)) / Math.pow(10, 2)}`;
+        counter = Number(bill.value) * Number(customBtnInput.value);
+        tipAmount = counter / 100 / Number(people.value);
+        tipTotal = (counter / 100) + Number(bill.value) / Number(people.value);
     } else {
-        const tipAmount = Number(bill.value) * Number(selected) / Number(people.value);
-        const tipTotal = ((Number(bill.value) * Number(selected)) + Number(bill.value)) / Number(people.value);
-    
-        result_tipAmount.innerHTML = `$${Math.round(tipAmount * Math.pow(10, 2)) / Math.pow(10, 2)}`;
-        result_tipTotal.innerHTML = `$${Math.round(tipTotal * Math.pow(10, 2)) / Math.pow(10, 2)}`;
+        counter = Number(bill.value) * Number(selected);
+        tipAmount = counter / Number(people.value);
+        tipTotal = (counter) + Number(bill.value) / Number(people.value);
     }
+    result_tipAmount.innerHTML = `$${calculateTip(tipAmount)}`;
+    result_tipTotal.innerHTML = `$${calculateTip(tipTotal)}`;
 };
 
 //validation
-const warningNotEmptyField = document.getElementById('warningNotEmptyField');
 const startCount = () => {
     if (people.value === '' || people.value === '0') {
         document.getElementById('result_tipAmount').value = '$0.00';
         warningNotEmptyField.innerHTML = "Can't be zero";
         people.style.border = 'solid red';
-        return
     } else {
         findSelected();
         warningNotEmptyField.innerHTML = '';
@@ -30,23 +42,17 @@ const startCount = () => {
 }
 
 //bill
-const bill = document.querySelector('#bill');
 bill.addEventListener('input', startCount);
 
 //people
-const people = document.querySelector('#people');
 people.addEventListener('input', startCount);
 
 //tip
-const tip = document.querySelectorAll("input[name='tip']");
-const result_tipAmount = document.getElementById('result_tipAmount');
-const result_tipTotal = document.getElementById('result_tipTotal');
 tip.forEach(radioBtn => {
     radioBtn.addEventListener('change', startCount);
 });
 
 //custom
-const customBtnInput = document.querySelector('#customBtnInput');
 customBtnInput.addEventListener('input', startCount);
 
 const customValue = () => {
@@ -55,8 +61,11 @@ const customValue = () => {
     document.querySelector('#customBtnInput').classList.add("visible");
 }
 
+customBtnInput.addEventListener('click', customValue);
+document.querySelector('#customBtn').addEventListener('click', customValue);
+
 //reset
-const resetBtn = () => {
+const resetAllValues = () => {
     document.querySelector('#bill').value = '';
     document.querySelector('#people').value = '';
     document.querySelector('#customBtnInput').value = '';
@@ -65,3 +74,5 @@ const resetBtn = () => {
     document.getElementById('result_tipAmount').innerHTML = '$0.00';
     document.getElementById('result_tipTotal').innerHTML = '$0.00';
 }
+
+resetBtn.addEventListener('click', resetAllValues);
